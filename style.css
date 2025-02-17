@@ -1,0 +1,107 @@
+/* Material UI Theme */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+}
+
+/* Fixed Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1f1f1f;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+/* Video Camera */
+#video {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 100px;
+    height: 60px;
+    border: 3px solid white;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+/* Debug Info Box */
+#debug {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000; /* Ensures it's on top */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+
+/* Sections */
+.section {
+    display: none;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.active {
+    display: flex;
+}
+
+/* Pages */
+.pages {
+    display: flex;
+    width: 300vw;
+    transition: transform 0.5s ease-in-out;
+}
+
+.page {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Page Colors */
+.page:nth-child(1) { background: #ff4b2b; }
+.page:nth-child(2) { background: #12d8fa; }
+.page:nth-child(3) { background: #a6ffcb; }
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: #1f1f1f;
+    text-align: center;
+    font-size: 14px;
+}
