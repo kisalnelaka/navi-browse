@@ -20,7 +20,8 @@ A **web-based navigation system** controlled by **hand gestures**, using **Tenso
 ### 1️⃣ Clone the repository
    ```sh
    git clone https://github.com/kisalnelaka/navi-browse.git
-   cd navi-browse
+   cd navi-browse 
+   ```
 ### 2️⃣ Open `index.html` in a browser
 - Use Chrome for better webcam permissions.  
 - No server required! Just open the file.  
