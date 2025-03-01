@@ -1,0 +1,19 @@
+{
+  "name": "navi-browse",
+  "version": "1.0.0",
+  "description": "Gesture-based navigation system",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup": "node setup.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

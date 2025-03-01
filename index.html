@@ -3,51 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>navi - browse | SocialRabbit Inc.</title>
+    <title>Interactive Billboard | Product Showcase</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
-    <header>
-        <img src="sr-logo.jpg" alt="socialRabbit Logo" class="logo">
-        <h1>socialrabbit Inc.</h1>
-    </header>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Initializing System...</div>
+    </div>
 
-    <video id="video" autoplay></video>
-    <div id="debug">Initializing...</div>
+    <div class="mode-indicator">Selection Mode</div>
 
-    <div class="section active" id="section1">
-        <h2>Section 1</h2>
-        <div class="pages" id="pages1">
-            <div class="page">Page 1-1</div>
-            <div class="page">Page 1-2</div>
-            <div class="page">Page 1-3</div>
+    <div class="gesture-indicator" id="gestureIndicator"></div>
+
+    <div class="camera-container">
+        <video id="video" class="input-video" playsinline autoplay></video>
+    </div>
+
+    <div id="debug">Wave your hand to interact!</div>
+
+    <div class="product-showcase">
+        <div class="section active" id="section1">
+            <div class="product-showcase" id="pages1">
+                <div class="product">
+                    <div class="product-3d-container" id="phone3d">
+                        <!-- Phone 3D render -->
+                    </div>
+                    <h2>Latest Smartphone</h2>
+                    <p>$999</p>
+                    <div class="features">
+                        <span>6.7" Display</span>
+                        <span>5G Ready</span>
+                        <span>48MP Camera</span>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-3d-container" id="shoe3d">
+                        <!-- Shoe 3D render -->
+                    </div>
+                    <h2>Sport Shoes</h2>
+                    <p>$129</p>
+                    <div class="features">
+                        <span>Lightweight</span>
+                        <span>Breathable</span>
+                        <span>All-day comfort</span>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="product1-details.jpg" alt="Smartphone Features">
+                    <div class="product-details">
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>All-day battery life</li>
+                            <li>Water resistant</li>
+                            <li>Face recognition</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-360">
+                        <img src="product1-360.jpg" alt="360 View">
+                        <p>Wave hand to rotate view</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-3d-container" id="product3d">
+                        <!-- 3D render will be inserted here -->
+                    </div>
+                    <div class="interaction-hints">
+                        <p>👆 Swipe Up: Enter interaction mode</p>
+                        <p>👇 Swipe Down: Exit interaction mode</p>
+                        <p>👈👉 Move hand left/right to rotate</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="section" id="section2">
-        <h2>Section 2</h2>
-        <div class="pages" id="pages2">
-            <div class="page">Page 2-1</div>
-            <div class="page">Page 2-2</div>
-            <div class="page">Page 2-3</div>
-        </div>
-    </div>
-
-    <div class="section" id="section3">
-        <h2>Section 3</h2>
-        <div class="pages" id="pages3">
-            <div class="page">Page 3-1</div>
-            <div class="page">Page 3-2</div>
-            <div class="page">Page 3-3</div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2025 SocialRabbit Inc. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
-    <script defer src="script.js"></script>
+    <!-- Update script loading order -->
+    <script src="utils/PoseDetector.js" type="module"></script>
+    <script src="utils/gestureDetector.js" type="module"></script>
+    <script src="models/ProductModel.js" type="module"></script>
+    <script src="config/products.js" type="module"></script>
+    <script src="3dmodels.js" type="module"></script>
+    <script src="script.js" type="module"></script>
 </body>
 </html>
